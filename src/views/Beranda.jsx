@@ -97,8 +97,8 @@ function Beranda({ onNavigate }) {
           <div className="profile-avatar">
             <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&h=100" alt="Avatar Profil" />
           </div>
-          <button className="btn-logout" onClick={() => onNavigate('login')}>
-            Keluar
+          <button onClick={() => onNavigate('semua-produk')} className="semua-back-btn">
+             Kategori / Lihat Semua Produk
           </button>
         </div>
       </header>
@@ -155,7 +155,11 @@ function Beranda({ onNavigate }) {
 
           <div className="course-grid">
             {courses.map((course) => (
-              <div key={course.id} style={{ position: 'relative' }}>
+              <div 
+                key={course.id} 
+                onClick={() => onNavigate('detail-produk', course.id)} 
+                style={{ position: 'relative', cursor: 'pointer' }}
+              >
                 <CourseCard
                   image={course.image}
                   badge={course.badge}
@@ -164,7 +168,7 @@ function Beranda({ onNavigate }) {
                   price={course.price}
                   rating={course.rating}
                 />
-                <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
+                <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }} onClick={(e) => e.stopPropagation()}>
                   <button onClick={() => handleEdit(course)} style={{ flex: 1, background: '#3b82f6', color: 'white', border: 'none', padding: '6px', borderRadius: '4px', cursor: 'pointer', fontSize: '0.85rem' }}>
                     Edit
                   </button>

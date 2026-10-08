@@ -1,0 +1,416 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Abdurrobi elman sudri",
+      "email": "obetelman@gmail.com",
+      "password": "123456",
+      "phone": "81234567890",
+      "gender": "Laki-laki",
+      "photo_url": ""
+    },
+    {
+      "id": "ynfEyhNe0ow",
+      "name": "Rahma",
+      "email": "rahma@gmail.com",
+      "password": "123456",
+      "phone": "111111111",
+      "gender": "Perempuan",
+      "photo_url": ""
+    }
+  ],
+  "tutors": [
+    {
+      "id": "1",
+      "full_name": "Jenna Ortega",
+      "job_title": "Senior Accountant di Gojek",
+      "bio": "Berpengalaman lebih dari 8 tahun di bidang akuntansi dan audit perusahaan besar.",
+      "photo_url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200"
+    },
+    {
+      "id": "2",
+      "full_name": "Abdurrobi Elman Sudri",
+      "job_title": "Frontend Engineer",
+      "bio": "Fokus pada pengembangan web modern menggunakan React dan ekosistemnya.",
+      "photo_url": ""
+    },
+    {
+      "id": "3",
+      "full_name": "Dimas Prasetyo",
+      "job_title": "Software Engineer",
+      "bio": "Mengajar pengembangan aplikasi web dari dasar hingga tingkat lanjut.",
+      "photo_url": ""
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "category_name": "Pemasaran",
+      "slug": "pemasaran"
+    },
+    {
+      "id": "2",
+      "category_name": "Desain",
+      "slug": "desain"
+    },
+    {
+      "id": "3",
+      "category_name": "Pengembangan Diri",
+      "slug": "pengembangan-diri"
+    },
+    {
+      "id": "4",
+      "category_name": "Bisnis",
+      "slug": "bisnis"
+    }
+  ],
+  "courses": [
+    {
+      "id": "1",
+      "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500",
+      "badge": "Bisnis",
+      "title": "Big 4 Auditor Financial Analyst",
+      "mentor": "Jenna Ortega",
+      "price": "Rp 300.000",
+      "rating": "4.8 (120)",
+      "tutor_id": "1",
+      "category_id": "4",
+      "description": "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik.",
+      "total_modules": 2,
+      "duration_minutes": 360
+    },
+    {
+      "id": "UAC7Opzbhms",
+      "image": "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=500",
+      "badge": "Pengembangan Diri",
+      "title": "Tutorial Jago JavaScript",
+      "mentor": "Abdurrobi Elman Sudri",
+      "price": "Rp 199.000",
+      "rating": "4.9 (85)",
+      "tutor_id": "2",
+      "category_id": "3",
+      "description": "Belajar JavaScript dari fundamental hingga siap dipakai membangun aplikasi nyata.",
+      "total_modules": 0,
+      "duration_minutes": 0
+    },
+    {
+      "id": "2",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500",
+      "badge": "Pengembangan Diri",
+      "title": "Belajar React dari Nol hingga Mahir",
+      "mentor": "Dimas Prasetyo",
+      "price": "Rp 250.000",
+      "rating": "4.7 (142)",
+      "tutor_id": "3",
+      "category_id": "3",
+      "description": "Kuasai React mulai dari komponen dasar sampai state management.",
+      "total_modules": 0,
+      "duration_minutes": 0
+    },
+    {
+      "id": "3",
+      "image": "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=500",
+      "badge": "Pemasaran",
+      "title": "Digital Marketing untuk Bisnis Pemula",
+      "mentor": "Sarah Amelia",
+      "price": "Rp 175.000",
+      "rating": "4.6 (98)",
+      "tutor_id": "",
+      "category_id": "1",
+      "description": "Strategi pemasaran digital praktis untuk bisnis yang baru mulai berkembang.",
+      "total_modules": 0,
+      "duration_minutes": 0
+    },
+    {
+      "id": "4",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500",
+      "badge": "Bisnis",
+      "title": "Manajemen Proyek dengan Metode Agile",
+      "mentor": "Budi Santoso",
+      "price": "Rp 220.000",
+      "rating": "4.8 (76)",
+      "tutor_id": "",
+      "category_id": "4",
+      "description": "Terapkan metode Agile untuk mengelola proyek tim secara efektif.",
+      "total_modules": 0,
+      "duration_minutes": 0
+    },
+    {
+      "id": "5",
+      "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=500",
+      "badge": "Pengembangan Diri",
+      "title": "Public Speaking untuk Pemula",
+      "mentor": "Nadia Putri",
+      "price": "Rp 149.000",
+      "rating": "4.9 (210)",
+      "tutor_id": "",
+      "category_id": "3",
+      "description": "Bangun kepercayaan diri berbicara di depan umum langkah demi langkah.",
+      "total_modules": 0,
+      "duration_minutes": 0
+    },
+    {
+      "id": "6",
+      "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=500",
+      "badge": "Desain",
+      "title": "UI/UX Design Fundamental dengan Figma",
+      "mentor": "Rizky Pratama",
+      "price": "Rp 275.000",
+      "rating": "4.9 (163)",
+      "tutor_id": "",
+      "category_id": "2",
+      "description": "Pelajari dasar UI/UX dan praktik langsung menggunakan Figma.",
+      "total_modules": 0,
+      "duration_minutes": 0
+    },
+    {
+      "id": "7",
+      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500",
+      "badge": "Pemasaran",
+      "title": "Content Marketing & Copywriting",
+      "mentor": "Fajar Nugraha",
+      "price": "Rp 189.000",
+      "rating": "4.7 (134)",
+      "tutor_id": "",
+      "category_id": "1",
+      "description": "Teknik menulis konten dan copywriting yang menjual.",
+      "total_modules": 0,
+      "duration_minutes": 0
+    }
+  ],
+  "course_modules": [
+    {
+      "id": "mod-1",
+      "course_id": "1",
+      "module_title": "Introduction to HR",
+      "module_order": 1
+    },
+    {
+      "id": "mod-2",
+      "course_id": "1",
+      "module_title": "Fundamentals of HR",
+      "module_order": 2
+    }
+  ],
+  "materials": [
+    {
+      "id": "m2",
+      "module_id": "mod-1",
+      "material_type": "video",
+      "title": "Video: Introduction to HR",
+      "content_url": "",
+      "order_index": 1
+    },
+    {
+      "id": "m3",
+      "module_id": "mod-1",
+      "material_type": "video",
+      "title": "Video: Introduction to HR",
+      "content_url": "",
+      "order_index": 2
+    },
+    {
+      "id": "m4",
+      "module_id": "mod-1",
+      "material_type": "video",
+      "title": "Video: Introduction to HR",
+      "content_url": "",
+      "order_index": 3
+    },
+    {
+      "id": "m5",
+      "module_id": "mod-1",
+      "material_type": "video",
+      "title": "Video: Introduction to HR",
+      "content_url": "",
+      "order_index": 4
+    },
+    {
+      "id": "m6",
+      "module_id": "mod-1",
+      "material_type": "rangkuman",
+      "title": "Rangkuman: Introduction to HR",
+      "content_url": "",
+      "order_index": 5
+    },
+    {
+      "id": "m7",
+      "module_id": "mod-1",
+      "material_type": "quiz",
+      "title": "Quiz: Introduction to HR",
+      "content_url": "",
+      "order_index": 6
+    },
+    {
+      "id": "m8",
+      "module_id": "mod-2",
+      "material_type": "video",
+      "title": "Video: Fundamentals of HR",
+      "content_url": "",
+      "order_index": 1
+    },
+    {
+      "id": "m9",
+      "module_id": "mod-2",
+      "material_type": "video",
+      "title": "Video: Fundamentals of HR",
+      "content_url": "",
+      "order_index": 2
+    }
+  ],
+  "pretest": [
+    {
+      "id": "pt-1",
+      "course_id": "1",
+      "question_text": "Memikirkan dan mengantisipasi secara teliti adanya user secara tidak sengaja mengutak-atik konfigurasi, namun dapat diatasi dengan membuat default yang mengurangi kepanikan pada user adalah pengertian dari ...",
+      "option_a": "Memikirkan tentang default",
+      "option_b": "Mempertimbangkan page layout berdasarkan suatu tujuan tertentu",
+      "option_c": "Memastikan bahwa sistem berjalan sesuai dengan apa yang terjadi saat itu juga",
+      "option_d": "Menciptakan konsistensi dan menggunakan elemen UI umum",
+      "correct_option": "A"
+    }
+  ],
+  "orders": [
+    {
+      "user_id": "1",
+      "course_id": "UAC7Opzbhms",
+      "invoice": "HEL/VI/87441065",
+      "created_at": "2026-10-07T15:37:21.065Z",
+      "status": "berhasil",
+      "course_title": "Tutorial Jago JavaScript",
+      "course_image": "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=500",
+      "price": 199000,
+      "admin_fee": 7500,
+      "total": 206500,
+      "payment_method": "Bank BCA",
+      "id": "9TLlMEmxttM"
+    },
+    {
+      "user_id": "ynfEyhNe0ow",
+      "course_id": "UAC7Opzbhms",
+      "invoice": "HEL/VI/87644680",
+      "created_at": "2026-10-07T15:40:44.680Z",
+      "status": "berhasil",
+      "course_title": "Tutorial Jago JavaScript",
+      "course_image": "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=500",
+      "price": 199000,
+      "admin_fee": 7500,
+      "total": 206500,
+      "payment_method": "Bank BCA",
+      "id": "zqJzkwplWEE"
+    },
+    {
+      "user_id": "ynfEyhNe0ow",
+      "course_id": "1",
+      "invoice": "HEL/VI/88162881",
+      "created_at": "2026-10-07T15:49:22.881Z",
+      "status": "berhasil",
+      "course_title": "Big 4 Auditor Financial Analyst",
+      "course_image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500",
+      "price": 300000,
+      "admin_fee": 7500,
+      "total": 307500,
+      "payment_method": "Bank BCA",
+      "id": "p9GgjtUpRNU"
+    },
+    {
+      "user_id": "1",
+      "course_id": "UAC7Opzbhms",
+      "invoice": "HEL/VI/97288409",
+      "created_at": "2026-10-07T18:21:28.409Z",
+      "status": "berhasil",
+      "course_title": "Tutorial Jago JavaScript",
+      "course_image": "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=500",
+      "price": 199000,
+      "admin_fee": 7500,
+      "total": 206500,
+      "payment_method": "Bank BCA",
+      "id": "3SfvapUeMWY"
+    },
+    {
+      "user_id": "ynfEyhNe0ow",
+      "course_id": "4",
+      "invoice": "HEL/VI/97323521",
+      "created_at": "2026-10-07T18:22:03.521Z",
+      "status": "berhasil",
+      "course_title": "Manajemen Proyek dengan Metode Agile",
+      "course_image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500",
+      "price": 220000,
+      "admin_fee": 7500,
+      "total": 227500,
+      "payment_method": "Bank BCA",
+      "id": "HmrlK9On4u8"
+    }
+  ],
+  "payments": [],
+  "enrollments": [
+    {
+      "id": "enr-1",
+      "user_id": "1",
+      "course_id": "1",
+      "order_id": "",
+      "status": "completed",
+      "modules_completed": 2,
+      "progress_percentage": 100,
+      "certificate_url": "",
+      "enrolled_at": "2026-09-10T08:00:00.000Z"
+    },
+    {
+      "id": "enr-2",
+      "user_id": "1",
+      "course_id": "1",
+      "order_id": "",
+      "status": "ongoing",
+      "modules_completed": 1,
+      "progress_percentage": 20,
+      "certificate_url": "",
+      "enrolled_at": "2026-09-20T08:00:00.000Z"
+    },
+    {
+      "user_id": "1",
+      "course_id": "UAC7Opzbhms",
+      "order_id": "9TLlMEmxttM",
+      "status": "ongoing",
+      "modules_completed": 0,
+      "progress_percentage": 0,
+      "certificate_url": "",
+      "enrolled_at": "2026-10-07T15:37:21.091Z",
+      "id": "KW6PxtRhxVE"
+    },
+    {
+      "user_id": "ynfEyhNe0ow",
+      "course_id": "1",
+      "order_id": "p9GgjtUpRNU",
+      "status": "ongoing",
+      "modules_completed": 0,
+      "progress_percentage": 0,
+      "certificate_url": "",
+      "enrolled_at": "2026-10-07T15:49:22.899Z",
+      "id": "s4kXBerIRK0"
+    },
+    {
+      "user_id": "1",
+      "course_id": "UAC7Opzbhms",
+      "order_id": "3SfvapUeMWY",
+      "status": "ongoing",
+      "modules_completed": 0,
+      "progress_percentage": 0,
+      "certificate_url": "",
+      "enrolled_at": "2026-10-07T18:21:28.438Z",
+      "id": "Yq63ZfLeNjo"
+    },
+    {
+      "user_id": "ynfEyhNe0ow",
+      "course_id": "4",
+      "order_id": "HmrlK9On4u8",
+      "status": "ongoing",
+      "modules_completed": 0,
+      "progress_percentage": 0,
+      "certificate_url": "",
+      "enrolled_at": "2026-10-07T18:22:03.541Z",
+      "id": "Bymjrp7vSCg"
+    }
+  ],
+  "reviews": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
