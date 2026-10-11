@@ -1,166 +1,129 @@
 // src/services/api.js
-import axios from 'axios';
+// Versi tanpa backend: data dari db.json + perubahan disimpan di localStorage
+import db from '../../db.json';
 
-// Membuat instance Axios dengan baseURL dari file .env (Vite)
-const API = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
-});
+const STORAGE_KEY = 'videobelajar_db_v1';
 
-// 1. Fungsi untuk Mengambil Data Courses (GET)
-export const getCourses = async () => {
+const loadStore = () => {
   try {
-    const response = await API.get('/courses');
-    return response.data;
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) return JSON.parse(saved);
   } catch (error) {
-    console.error('Gagal mengambil data kursus:', error);
-    return [];
+    console.error('Gagal membaca localStorage:', error);
+  }
+  return structuredClone(db);
+};
+
+const store = loadStore();
+
+const persist = () => {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+  } catch (error) {
+    console.error('Gagal menyimpan ke localStorage:', error);
   }
 };
 
-// 2. Fungsi untuk Cek Login User (GET)
+const list = (name) => {
+  if (!store[name]) store[name] = [];
+  return store[name];
+};
+
+const newId = () => Math.random().toString(36).slice(2, 13);
+const respond = (data) => Promise.resolve(structuredClone(data));
+
+// 1. Ambil semua kursus
+export const getCourses = async () => respond(list('courses'));
+
+// 2. Cek login
 export const loginUser = async (email, password) => {
-  try {
-    const response = await API.get('/users');
-    const users = response.data;
-
-    const foundUser = users.find(
-      (user) => user.email === email && user.password === password
-    );
-
-    return foundUser;
-  } catch (error) {
-    console.error('Gagal melakukan login:', error);
-    return null;
-  }
+  const foundUser = list('users').find(
+    (user) => user.email === email && user.password === password
+  );
+  return respond(foundUser);
 };
 
-// 3. Fungsi untuk Mendaftarkan User Baru (POST)
+// 3. Daftar user baru
 export const registerUser = async (userData) => {
-  try {
-    const response = await API.post('/users', userData);
-    return response.data;
-  } catch (error) {
-    console.error('Gagal melakukan registrasi:', error);
-    return null;
-  }
+  const user = { ...userData, id: newId() };
+  list('users').push(user);
+  persist();
+  return respond(user);
 };
 
-// 4. Tambah Kursus Baru (POST)
+// 4. Tambah kursus
 export const addCourseAPI = async (courseData) => {
-  try {
-    const response = await API.post('/courses', courseData);
-    return response.data;
-  } catch (error) {
-    console.error('Gagal menambah kursus:', error);
-    return null;
-  }
+  const course = { ...courseData, id: newId() };
+  list('courses').push(course);
+  persist();
+  return respond(course);
 };
 
-// 5. Update Kursus (PUT)
+// 5. Update kursus
 export const updateCourseAPI = async (id, courseData) => {
-  try {
-    const response = await API.put(`/courses/${id}`, courseData);
-    return response.data;
-  } catch (error) {
-    console.error('Gagal memperbarui kursus:', error);
-    return null;
-  }
+  const courses = list('courses');
+  const index = courses.findIndex((c) => String(c.id) === String(id));
+  if (index === -1) return null;
+  courses[index] = { ...courseData, id: courses[index].id };
+  persist();
+  return respond(courses[index]);
 };
 
-// 6. Hapus Kursus (DELETE)
+// 6. Hapus kursus
 export const deleteCourseAPI = async (id) => {
-  try {
-    await API.delete(`/courses/${id}`);
-    return id;
-  } catch (error) {
-    console.error('Gagal menghapus kursus:', error);
-    return null;
-  }
+  store.courses = list('courses').filter((c) => String(c.id) !== String(id));
+  persist();
+  return id;
 };
-// 7. Fungsi untuk Mengambil Detail 1 Kursus berdasarkan ID (GET)
+
+// 7. Detail 1 kursus
 export const getCourseById = async (id) => {
-  try {
-    const response = await API.get(`/courses/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error('Gagal mengambil detail kursus:', error);
-    return null;
-  }
+  const course = list('courses').find((c) => String(c.id) === String(id));
+  return respond(course ?? null);
 };
 
-// 8. Fungsi untuk Mengambil Detail Tutor berdasarkan ID (GET)
+// 8. Detail tutor
 export const getTutorById = async (id) => {
-  try {
-    const response = await API.get(`/tutors/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error('Gagal mengambil data tutor:', error);
-    return null;
-  }
+  const tutor = list('tutors').find((t) => String(t.id) === String(id));
+  return respond(tutor ?? null);
 };
 
-// 9. Simpan Pesanan Baru (POST)
+// 9. Simpan pesanan
 export const createOrder = async (orderData) => {
-  try {
-    const response = await API.post('/orders', orderData);
-    return response.data;
-  } catch (error) {
-    console.error('Gagal menyimpan pesanan:', error);
-    return null;
-  }
+  const order = { ...orderData, id: newId() };
+  list('orders').push(order);
+  persist();
+  return respond(order);
 };
 
-// 10. Ambil Pesanan milik 1 User (GET)
-export const getOrdersByUser = async (userId) => {
-  try {
-    const response = await API.get('/orders', { params: { user_id: userId } });
-    return response.data;
-  } catch (error) {
-    console.error('Gagal mengambil pesanan:', error);
-    return [];
-  }
-};
+// 10. Pesanan milik 1 user
+export const getOrdersByUser = async (userId) =>
+  respond(list('orders').filter((o) => String(o.user_id) === String(userId)));
 
-// 11. (Opsional) Daftarkan user ke kelas setelah bayar (POST)
+// 11. Buat enrollment
 export const createEnrollment = async (enrollmentData) => {
-  try {
-    const response = await API.post('/enrollments', enrollmentData);
-    return response.data;
-  } catch (error) {
-    console.error('Gagal membuat enrollment:', error);
-    return null;
-  }
+  const enrollment = { ...enrollmentData, id: newId() };
+  list('enrollments').push(enrollment);
+  persist();
+  return respond(enrollment);
 };
 
-// 12. Ambil Enrollment (kelas yang dibeli) milik 1 User (GET)
-export const getEnrollmentsByUser = async (userId) => {
-  try {
-    const response = await API.get('/enrollments', { params: { user_id: userId } });
-    return response.data;
-  } catch (error) {
-    console.error('Gagal mengambil kelas saya:', error);
-    return [];
-  }
-};
+// 12. Enrollment milik 1 user
+export const getEnrollmentsByUser = async (userId) =>
+  respond(list('enrollments').filter((e) => String(e.user_id) === String(userId)));
 
-// 13. Ambil data 1 User berdasarkan ID (GET)
+// 13. Data 1 user
 export const getUserById = async (id) => {
-  try {
-    const response = await API.get(`/users/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error('Gagal mengambil data user:', error);
-    return null;
-  }
+  const user = list('users').find((u) => String(u.id) === String(id));
+  return respond(user ?? null);
 };
 
-// 14. Update sebagian data User (PATCH)
+// 14. Update sebagian data user
 export const updateUserAPI = async (id, userData) => {
-  try {
-    const response = await API.patch(`/users/${id}`, userData);
-    return response.data;
-  } catch (error) {
-    console.error('Gagal memperbarui profil:', error);
-    return null;
-  }
+  const users = list('users');
+  const index = users.findIndex((u) => String(u.id) === String(id));
+  if (index === -1) return null;
+  users[index] = { ...users[index], ...userData };
+  persist();
+  return respond(users[index]);
 };
